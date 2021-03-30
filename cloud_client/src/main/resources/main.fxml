@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="center" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gevorgyan.cloudstorage.clientside.Controller">
+    <HBox  fx:id="auth" spacing="10">
+        <Label text="Логин" HBox.hgrow="ALWAYS"  />
+        <TextField fx:id="loginField" HBox.hgrow="ALWAYS" />
+        <Label text="Пароль" HBox.hgrow="ALWAYS"/>
+        <PasswordField fx:id="passField" HBox.hgrow="ALWAYS" />
+        <Label text="Зарегистрироваться" HBox.hgrow="ALWAYS" />
+        <CheckBox fx:id="regField" />
+        <Button fx:id="authBtn" text="Войти" onAction="#tryAuth"/>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </padding>
+    </HBox>
+    <MenuBar >
+        <Menu text="Файл">
+            <MenuItem onAction="#btnExitAction" text="Выйти из программы" />
+        </Menu>
+    </MenuBar>
+
+    <HBox VBox.vgrow="ALWAYS">
+        <fx:include fx:id="localePanel" source="localePanel.fxml" HBox.hgrow="ALWAYS" />
+        <fx:include fx:id="storagePanel" source="storagePanel.fxml" HBox.hgrow="ALWAYS" />
+    </HBox>
+
+
+    <HBox fx:id="buttonsBox" spacing="5">
+        <Button fx:id="uploadBtn" focusTraversable="false" maxWidth="Infinity" text="Загрузить файл" HBox.hgrow="ALWAYS" onAction="#btnUpload"/>
+        <Button fx:id="downloadBtn" focusTraversable="false" maxWidth="Infinity" text="Скачать файл" HBox.hgrow="ALWAYS" onAction="#btnDownload" />
+        <Button fx:id="deleteBtn" focusTraversable="false" maxWidth="Infinity" text="Удалить файл/папку" HBox.hgrow="ALWAYS" onAction="#btnDelete"/>
+        <Button fx:id="createDirBtn" focusTraversable="false" maxWidth="Infinity" text="Создать папку" HBox.hgrow="ALWAYS" onAction="#btnCreateDir"/>
+        <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+        </padding>
+    </HBox>
+    <ProgressBar fx:id="progressBar" prefWidth="900"/>
+</VBox>
