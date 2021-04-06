@@ -35,7 +35,7 @@ public class Network {
     public void start(CountDownLatch countDownLatch) {
 
         try {
-            socket = new Socket("localhost", 8189);
+            socket = new Socket("localhost", 1235);
             in = new DataInputStream(socket.getInputStream());
             out = new DataOutputStream(socket.getOutputStream());
             countDownLatch.countDown();
